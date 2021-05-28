@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Project</title>
+	<link rel="stylesheet" href="budget.css">
+	<script src="budget.js" type=module></script>
+	<script src="diagram.js" type=module></script>
+	<script src="budget_calendar.js" type=module></script>
+	<script src="https://www.gstatic.com/charts/loader.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+	<div class="calculator__header">
+		<h1 class="calculator__title">
+			Budget calculator
+		</h1>
+	</div>
+	<div class="main">
+		<div class="calculator">
+			<div class="calculator__add-expenses">
+				<h2> Калькулятор витрат </h2>
+			</div>
+			<section class="calculator__add">
+				
+				<header class="total__header">
+                    <h3>Баланс</h3>
+                <p class="total__balance">0 грн</p>
+                </header>
+                <div class="total__main">
+                    <div class="total__main-item total__income">
+                        <h4>Доходи</h4>
+                        <p class="total__money total__money-income">
+                            +0 грн
+                        </p>
+                    </div>
+                    <div class="total__main-item total__expenses">
+                        <h4> Витрати </h4>
+                        <p class="total__money total__money-expenses">
+                            -0 грн
+                        </p>
+                    </div>
+                </div>
+            </section>
+			<section class="operation">
+                <h3>Нова операція</h3>
+                <form id="form">
+                    <label>
+                        <input type="text" class="operation__fields operation__name" placeholder="Наименование операции">
+                    </label>
+                    <label>
+                        <input type="number" class="operation__fields operation__amount" placeholder="Введите сумму">
+                    </label>
+                    <button type="submit" class="operation__add">Додати операцію</button>
+
+                </form>
+			</section>
+
+            <section class="history">
+                <h3> Історія витрат і доходів </h3>
+               <ul class="history__list">
+                    <!-- <li class="history__item history__item-plus">ЗП
+                        <span class="history__money">+30000 грн</span>
+                        <button class="history_delete">x</button>
+                    </li>
+
+                    <li class="history__item  history__item-minus">Їжа
+                        <span class="history__money">-10000 грн</span>
+                        <button class="history_delete">x</button>
+                    </li>-->
+                </ul>
+            </section>
+
+		</div>
+
+		<div class="right">
+			<div id="piechart" style="width: 500px;"></div>
+			<div class="right-pannel">
+				<div class="right-pannel__calendar calendar">
+					<div class="calendar__header">
+						<button class="calendar__prev-btn" aria-label="previous month">
+							<svg viewBox="0 0 20 38" class="calendar__prev-btn-icon" aria-label="">
+								<path d="M19 1L1 19L19 37" />
+							</svg>
+						</button>
+
+						<span class="calendar__month-title">
+							May 2021
+						</span>
+
+						<button class="calendar__next-btn" aria-label="next month">
+							<svg viewBox="0 0 20 38" class="calendar__next-btn-icon" aria-label="">
+								<path d="M19 1L1 19L19 37" />
+							</svg>
+						</button>
+
+					</div>
+					<div class="calendar__body">
+						<ul class="calendar__day-names">
+							<li class="calendar__day-name">M</li>
+							<li class="calendar__day-name">T</li>
+							<li class="calendar__day-name">W</li>
+							<li class="calendar__day-name">T</li>
+							<li class="calendar__day-name">F</li>
+							<li class="calendar__day-name">Sat</li>
+							<li class="calendar__day-name">Sun</li>
+						</ul>
+						<ul class="calendar__day-list">
+							<li class="calendar__day calendar__day--not-in-current-month">
+								<a href="?day=2018-02-28" class="calendar__day-link">28</a>
+							</li>
+							<li class="calendar__day">
+								<a href="?day=2018-03-01" class="calendar__day-link">1</a>
+							</li>
+							<li class="calendar__day">
+								<a href="?day=2018-03-02" class="calendar__day-link">2</a>
+							</li>
+							<li class="calendar__day">
+								<a href="?day=2018-03-03" class="calendar__day-link">3</a>
+							</li>
+							<li class="calendar__day">
+								<a href="#" class="calendar__day-link">4</a>
+							</li>
+							<li class="calendar__day">
+								<a href="#" class="calendar__day-link">5</a>
+							</li>
+							<li class="calendar__day">
+								<a href="#" class="calendar__day-link">6</a>
+							</li>
+							<li class="calendar__day calendar__day--current">
+								<a href="" class="calendar__day-link">7</a>
+							</li>
+							<li class="calendar__day calendar__day--display">
+								<a href="" class="calendar__day-link">8</a>
+							</li>
+							<li class="calendar__day calendar__day--current calendar__day--display">
+								<a href="" class="calendar__day-link">9</a>
+							</li>
+							<li class="calendar__day"><a href="" class="calendar__day-link">10</a></li>
+							<li class="calendar__day"><a href="" class="calendar__day-link">11</a></li>
+							<li class="calendar__day"><a href="" class="calendar__day-link">12</a></li>
+							<li class="calendar__day"><a href="" class="calendar__day-link">13</a></li>
+							<li class="calendar__day"><a href="" class="calendar__day-link">14</a></li>
+							<li class="calendar__day"><a href="" class="calendar__day-link">15</a></li>
+							<li class="calendar__day"><a href="" class="calendar__day-link">16</a></li>
+							<li class="calendar__day"><a href="" class="calendar__day-link">17</a></li>
+							<li class="calendar__day"><a href="" class="calendar__day-link">18</a></li>
+							<li class="calendar__day"><a href="" class="calendar__day-link">19</a></li>
+							<li class="calendar__day"><a href="" class="calendar__day-link">20</a></li>
+							<li class="calendar__day"><a href="" class="calendar__day-link">21</a></li>
+							<li class="calendar__day"><a href="" class="calendar__day-link">22</a></li>
+							<li class="calendar__day"><a href="" class="calendar__day-link">23</a></li>
+							<li class="calendar__day"><a href="" class="calendar__day-link">24</a></li>
+							<li class="calendar__day"><a href="" class="calendar__day-link">25</a></li>
+							<li class="calendar__day"><a href="" class="calendar__day-link">26</a></li>
+							<li class="calendar__day"><a href="" class="calendar__day-link">27</a></li>
+							<li class="calendar__day"><a href="" class="calendar__day-link">28</a></li>
+							<li class="calendar__day"><a href="" class="calendar__day-link">29</a></li>
+							<li class="calendar__day"><a href="" class="calendar__day-link">30</a></li>
+							<li class="calendar__day"><a href="" class="calendar__day-link">31</a></li>
+							<li class="calendar__day calendar__day--not-in-current-month"><a href=""
+									class="calendar__day-link">1</a></li>
+							<li class="calendar__day calendar__day--not-in-current-month"><a href=""
+									class="calendar__day-link">2</a></li>
+							<li class="calendar__day calendar__day--not-in-current-month"><a href=""
+									class="calendar__day-link">3</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	
+</body>
+
+</html>
